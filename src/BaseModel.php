@@ -50,6 +50,13 @@ abstract class BaseModel implements ModelInterface
         return $this->{$key} ?? null;
     }
 
+    public function setValueByKey(string $key, mixed $value): void
+    {
+        if ($this->hasValueKey($key)) {
+            $this->{$key} = $value;
+        }
+    }
+
     public function getIterator(): Iterator
     {
         return new ArrayIterator($this);
