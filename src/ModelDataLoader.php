@@ -19,7 +19,7 @@ class ModelDataLoader
             }
 
             $newKey = $serializeStrategy->getNewKey($key);
-            $newValue = $serializeStrategy->getNewKey($value);
+            $newValue = $serializeStrategy->getNewValue($value);
             $model->offsetSet($newKey, $newValue);
         }
     }
