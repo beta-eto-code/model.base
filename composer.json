@@ -24,12 +24,6 @@
             "Model\\Base\\Tests\\": "tests/"
         }
     },
-    "repositories": {
-        "collection.base": {
-            "type": "vcs",
-            "url": "git@github.com:beta-eto-code/collection.base.git"
-        }
-    },
     "scripts": {
         "test": "phpunit"
     }
