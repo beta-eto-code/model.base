@@ -13,6 +13,13 @@ class CamelCaseTest extends TestCase
         $this->assertEquals('lastName', $serializeStrategy->getNewKey('last_name'));
         $this->assertEquals('lastName', $serializeStrategy->getNewKey('Last_Name'));
         $this->assertEquals('lastNamE', $serializeStrategy->getNewKey('Last_NamE'));
+        $this->assertEquals('nAME', $serializeStrategy->getNewKey('NAME'));
+
+        $serializeStrategy = new CamelCase(true);
+        $this->assertEquals('lastName', $serializeStrategy->getNewKey('last_name'));
+        $this->assertEquals('lastName', $serializeStrategy->getNewKey('Last_Name'));
+        $this->assertEquals('lastName', $serializeStrategy->getNewKey('Last_NamE'));
+        $this->assertEquals('name', $serializeStrategy->getNewKey('NAME'));
     }
 
     public function testGetNewKey()
