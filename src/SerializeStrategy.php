@@ -11,6 +11,7 @@ class SerializeStrategy
 {
     private static ?SerializeStrategyInterface $asIsCase = null;
     private static ?SerializeStrategyInterface $camelCase = null;
+    private static ?SerializeStrategyInterface $camelCaseToLowerTransform = null;
     private static ?SerializeStrategyInterface $snakeCase = null;
 
     public static function getDefault(): SerializeStrategyInterface
@@ -27,6 +28,14 @@ class SerializeStrategy
             static::$camelCase = new CamelCase();
         }
         return static::$camelCase;
+    }
+
+    public static function getCamelCaseWithToLowerTransform(): SerializeStrategyInterface
+    {
+        if (empty(static::$camelCaseToLowerTransform)) {
+            static::$camelCaseToLowerTransform = new CamelCase(true);
+        }
+        return static::$camelCaseToLowerTransform;
     }
 
     public static function getSnakeCase(): SerializeStrategyInterface
